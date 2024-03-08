@@ -29,7 +29,7 @@ checkBtn.addEventListener("click", function () {
                    
                 if (valid1 % 10 === parseInt(inputValue[9]) && valid2 % 10 === parseInt(inputValue[10])){
 
-                    validationMessage.textContent = `${inputValue} : TC number Valided`                    
+                    validationMessage.textContent = `${formattedValue} : TC number Valided`                    
                     tcInput.style.backgroundColor = "green"
                                    
                 }else{
