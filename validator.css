@@ -39,6 +39,11 @@ body {
   border-radius: 5px;
   padding-left: 0.8rem;
 }
+.tc-id-input:hover{
+  
+  outline: 2px solid black;
+  
+}
 .tc-id::-webkit-scrollbar {
   width: 0;
   height: 0;

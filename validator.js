@@ -5,9 +5,24 @@ const tcInput = document.querySelector(".tc-id-input");
 
 
 //BUTONA TIKLANDIGINDA EVENT'I
-checkBtn.addEventListener("click", function () {
 
-    const inputValue = tcInput.value;
+
+
+checkBtn.addEventListener("click", function () {
+    validateTCNumber();
+});
+
+// ENTER TUŞUNA BASILDIĞINDA EVENT'I
+tcInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        validateTCNumber();
+    }
+});
+
+function validateTCNumber() {
+
+
+    let inputValue = tcInput.value;
     const formattedValue = inputValue.replace(/(\d{3})(?=\d)/g, '$1 ')
    
     if (/^\d+$/.test(inputValue)){
@@ -29,26 +44,34 @@ checkBtn.addEventListener("click", function () {
                    
                 if (valid1 % 10 === parseInt(inputValue[9]) && valid2 % 10 === parseInt(inputValue[10])){
 
-                    validationMessage.textContent = `${formattedValue} : TC number Valided`                    
-                    tcInput.style.backgroundColor = "green"
+                    validationMessage.textContent = `${formattedValue} : TC number Valided`;                 
+                    tcInput.style.backgroundColor = "green";
+                    
+                    tcInput.value = "";
+                    
                                    
                 }else{
-                    validationMessage.textContent = `${inputValue} : TC number not Valided`
-                    tcInput.style.backgroundColor = "red"
+                    validationMessage.textContent = `${inputValue} : TC number not Valided`;
+                    tcInput.style.backgroundColor = "white";                
+                    tcInput.value = "";
+                   
                 }
             }else{
                 validationMessage.textContent = `Error: ${inputValue} ID number does not start with 0.`;
-                tcInput.style.backgroundColor = "red"
+                tcInput.style.backgroundColor = "white";
+                tcInput.value = "";
             }
         }else{
             validationMessage.textContent = `Error: ${inputValue} ID number must consist of 11 digits.`;
-            tcInput.style.backgroundColor = "red"
+            tcInput.style.backgroundColor = "white"
+            tcInput.value = "";
         } 
     }else {
         validationMessage.textContent = `Error: ${inputValue} ID number consists of numbers only.`;
-        tcInput.style.backgroundColor = "red"
+        tcInput.style.backgroundColor = "white"
+        tcInput.value = "";
     } 
-});
+};
 
 
 
