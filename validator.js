@@ -5,8 +5,8 @@ const tcInput = document.querySelector(".tc-id-input");
 
 
 //BUTONA TIKLANDIGINDA EVENT'I
-checkBtn.addEventListener("click", function () 
-{
+checkBtn.addEventListener("click", function () {
+
     const inputValue = tcInput.value;
     const formattedValue = inputValue.replace(/(\d{3})(?=\d)/g, '$1 ')
    
@@ -25,19 +25,17 @@ checkBtn.addEventListener("click", function ()
                 }
                 
                 const valid1 = evenSum * 7 - oddSum               
-                const valid2 = evenSum + oddSum + parseInt(inputValue[9])
-                               
+                const valid2 = evenSum + oddSum + parseInt(inputValue[9])                              
                    
                 if (valid1 % 10 === parseInt(inputValue[9]) && valid2 % 10 === parseInt(inputValue[10])){
 
                     validationMessage.textContent = `${inputValue} : TC number Valided`                    
                     tcInput.style.backgroundColor = "green"
-                   `                 
+                                   
                 }else{
                     validationMessage.textContent = `${inputValue} : TC number not Valided`
                     tcInput.style.backgroundColor = "red"
                 }
-
             }else{
                 validationMessage.textContent = `Error: ${inputValue} ID number does not start with 0.`;
                 tcInput.style.backgroundColor = "red"
